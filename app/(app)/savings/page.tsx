@@ -96,6 +96,11 @@ const mockGoals: SavingsGoal[] = [
   },
 ];
 
+const [showNewGoalDialog, setShowNewGoalDialog] = useState(false);
+const [newGoalName, setNewGoalName] = useState('');
+const [newGoalTarget, setNewGoalTarget] = useState('');
+const [newGoalDeadline, setNewGoalDeadline] = useState('');
+
 /**
  * Savings management page.
  */

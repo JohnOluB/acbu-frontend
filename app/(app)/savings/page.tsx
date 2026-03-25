@@ -568,8 +568,11 @@ export default function SavingsPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label className="text-foreground">Goal Name</Label>
+              <Label htmlFor="goal-name" className="text-foreground">
+                Goal Name
+              </Label>
               <Input
+                id="goal-name"
                 placeholder="e.g. Emergency Fund"
                 value={newGoalName}
                 onChange={(e) => setNewGoalName(e.target.value)}
@@ -578,8 +581,11 @@ export default function SavingsPage() {
             </div>
 
             <div className="space-y-2">
-              <Label className="text-foreground">Target Amount (AFK)</Label>
+              <Label htmlFor="goal-target" className="text-foreground">
+                Target Amount (AFK)
+              </Label>
               <Input
+                id="goal-target"
                 type="number"
                 placeholder="0.00"
                 min="0"
@@ -591,8 +597,11 @@ export default function SavingsPage() {
             </div>
 
             <div className="space-y-2">
-              <Label className="text-foreground">Deadline</Label>
+              <Label htmlFor="goal-deadline" className="text-foreground">
+                Deadline
+              </Label>
               <Input
+                id="goal-deadline"
                 type="month"
                 value={newGoalDeadline}
                 onChange={(e) => setNewGoalDeadline(e.target.value)}

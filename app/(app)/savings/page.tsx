@@ -124,7 +124,7 @@ export default function SavingsPage() {
   const [goals, setGoals] = useState<SavingsGoal[]>(initialGoals);
 
   useEffect(() => {
-    userApi
+    userApii
       .getReceive(opts)
       .then((data) => {
         setReceiveError("");

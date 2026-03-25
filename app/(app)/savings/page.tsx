@@ -127,10 +127,17 @@ export default function SavingsPage() {
     userApi
       .getReceive(opts)
       .then((data) => {
+        setReceiveError("");
         const uri = (data.pay_uri ?? data.alias) as string | undefined;
         if (uri && typeof uri === "string") setApiUser(uri);
       })
-      .catch(() => {});
+      .catch((err) => {
+        setReceiveError(
+          err instanceof Error
+            ? err.message
+            : "Unable to load savings account details."
+        );
+      });
   }, [opts.token]);
   useEffect(() => {
     if (!apiUser) return;
@@ -138,9 +145,15 @@ export default function SavingsPage() {
     savingsApi
       .getSavingsPositions(apiUser, undefined, opts)
       .then((res) => {
+        setReceiveError("");
         setPositionsBalance(res.balance);
       })
-      .catch(() => setPositionsBalance(null))
+      .catch((err) => {
+        setPositionsBalance(null);
+        setReceiveError(
+          err instanceof Error ? err.message : "Unable to load savings balance."
+        );
+      })
       .finally(() => setPositionsLoading(false));
   }, [apiUser, opts.token]);
 
